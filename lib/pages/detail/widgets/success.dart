@@ -8,7 +8,6 @@ class Success extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.width);
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
