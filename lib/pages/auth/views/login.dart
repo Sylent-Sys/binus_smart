@@ -20,7 +20,7 @@ class _LoginState extends State<Login> {
   final TextEditingController _passwordController = TextEditingController();
   final _storage = storage;
   bool _isLoading = false;
-  String _errorMessage = '';
+  bool _isError = false;
 
   void login(String username, String password, BuildContext context) async {
     setState(() {
@@ -47,16 +47,16 @@ class _LoginState extends State<Login> {
         key: 'firstName',
         value: user.name.firstname,
       );
-      if (context.mounted) {
-        Routes.router.navigateTo(context, 'home', replace: true);
-      }
       setState(() {
         _isLoading = false;
       });
+      if (context.mounted) {
+        Routes.router.navigateTo(context, 'home', replace: true);
+      }
     } catch (e) {
       setState(() {
         _isLoading = false;
-        _errorMessage = 'Error: ${e.toString()}';
+        _isError = true;
       });
     }
   }
@@ -121,8 +121,7 @@ class _LoginState extends State<Login> {
                           isDense: true,
                           contentPadding: const EdgeInsets.all(10),
                           hintStyle: TextStyle(
-                            color:
-                                _errorMessage.isNotEmpty ? merah : Colors.grey,
+                            color: _isError ? merah : Colors.grey,
                           ),
                           fillColor: Colors.white30,
                           filled: true,
@@ -131,7 +130,7 @@ class _LoginState extends State<Login> {
                               Radius.circular(5),
                             ),
                           ),
-                          enabledBorder: _errorMessage.isNotEmpty
+                          enabledBorder: _isError
                               ? OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: merah,
@@ -163,8 +162,7 @@ class _LoginState extends State<Login> {
                           isDense: true,
                           contentPadding: const EdgeInsets.all(10),
                           hintStyle: TextStyle(
-                            color:
-                                _errorMessage.isNotEmpty ? merah : Colors.grey,
+                            color: _isError ? merah : Colors.grey,
                           ),
                           fillColor: Colors.white30,
                           filled: true,
@@ -173,7 +171,7 @@ class _LoginState extends State<Login> {
                               Radius.circular(5),
                             ),
                           ),
-                          enabledBorder: _errorMessage.isNotEmpty
+                          enabledBorder: _isError
                               ? OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: merah,
@@ -190,7 +188,7 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                       const SizedBox(height: 24.5),
-                      _errorMessage.isNotEmpty
+                      _isError
                           ? SizedBox(
                               width: double.infinity,
                               child: Text(
@@ -204,9 +202,7 @@ class _LoginState extends State<Login> {
                               ),
                             )
                           : const SizedBox(),
-                      _errorMessage.isNotEmpty
-                          ? const SizedBox(height: 4)
-                          : const SizedBox(),
+                      _isError ? const SizedBox(height: 4) : const SizedBox(),
                       _isLoading
                           ? const SizedBox(
                               width: double.infinity,
