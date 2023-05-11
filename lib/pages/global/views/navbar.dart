@@ -119,7 +119,7 @@ class _NavbarState extends State<Navbar> {
               _isAuth
                   ? TextButton(
                       onPressed: () async {
-                        await storage.delete(key: 'firstName');
+                        await storage.deleteAll();
                         setState(() {
                           _isAuth = false;
                         });
