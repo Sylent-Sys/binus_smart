@@ -1,3 +1,5 @@
+import 'package:binus_smart/models/product.dart';
+
 class CartModel {
   int id;
   int userId;
@@ -26,6 +28,7 @@ class CartModel {
 class CartProductModel {
   int productId;
   int quantity;
+  ProductModel? product;
   CartProductModel({
     required this.productId,
     required this.quantity,
@@ -33,7 +36,7 @@ class CartProductModel {
   factory CartProductModel.fromJson(Map<String, dynamic> json) {
     return CartProductModel(
       productId: json["productId"],
-      quantity: json["quantity"],
+      quantity: json["quantity"]
     );
   }
 }
