@@ -1,4 +1,5 @@
 import 'package:binus_smart/pages/auth/auth.dart';
+import 'package:binus_smart/pages/cart/cart.dart';
 import 'package:binus_smart/pages/category/category.dart';
 import 'package:binus_smart/pages/detail/detail.dart';
 import 'package:binus_smart/pages/home/home.dart';
@@ -49,6 +50,14 @@ class Routes {
           Map<String, dynamic> params,
         ) {
           return const Category();
+        },
+      ),
+    );
+    router.define(
+      'cart',
+      handler: Handler(
+        handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
+          return const Cart();
         },
       ),
     );

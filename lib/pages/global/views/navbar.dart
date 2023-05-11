@@ -99,7 +99,9 @@ class _NavbarState extends State<Navbar> {
                 width: 18,
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Routes.router.navigateTo(context, 'cart', replace: true);
+                },
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.transparent,
                   foregroundColor: Colors.transparent,
