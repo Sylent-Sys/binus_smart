@@ -59,9 +59,9 @@ class _ResultState extends State<Result> {
             onTap: () {
               Routes.router.navigateTo(context, 'home', replace: true);
             },
-            child: FittedBox(
+            child: const FittedBox(
               child: Row(
-                children: const [
+                children: [
                   Icon(
                     Icons.arrow_back,
                     color: Colors.black,
