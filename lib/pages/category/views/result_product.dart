@@ -16,15 +16,18 @@ class ResultProduct extends StatefulWidget {
 class _ResultProductState extends State<ResultProduct> {
   bool _isLoading = true;
   bool _isError = false;
-  String _selectedCategory = '';
   List<Product> _products = [];
   @override
   void initState() {
     super.initState();
+    getProducts();
   }
-
-  void getProducts(BuildContext context) async {
-    if(_selectedCategory == widget.selectedCategory) return;
+  @override
+  void didUpdateWidget(covariant ResultProduct oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    getProducts();
+  }
+  void getProducts() async {
     setState(() {
       _isLoading = true;
       _isError = false;
@@ -35,21 +38,17 @@ class _ResultProductState extends State<ResultProduct> {
       setState(() {
         _products =
             List<Product>.from(response.data.map((e) => Product.fromJson(e)));
-        _selectedCategory = widget.selectedCategory;
         _isLoading = false;
       });
     } catch (e) {
-      if (context.mounted) {
-        setState(() {
-          _isError = true;
-        });
-      }
+      setState(() {
+        _isError = true;
+      });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    getProducts(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
