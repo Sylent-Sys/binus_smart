@@ -1,3 +1,4 @@
+import 'package:binus_smart/config/colors.dart';
 import 'package:binus_smart/models/product.dart';
 import 'package:binus_smart/pages/global/views/state_condition.dart';
 import 'package:binus_smart/pages/home/widgets/my_card.dart';
@@ -56,10 +57,10 @@ class _ResultState extends State<Result> {
               if (!_isLoading && !_isError)
                 Text(
                   '${_products.length} Result',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
-                    color: Colors.grey,
+                    color: abu2_2,
                   ),
                 )
             ],
