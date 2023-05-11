@@ -1,12 +1,12 @@
-class User {
+class UserModel {
   int id;
   String email;
   String username;
   String password;
   String phone;
-  Name name;
-  Address address;
-  User({
+  NameModel name;
+  AddressModel address;
+  UserModel({
     required this.id,
     required this.email,
     required this.username,
@@ -16,71 +16,71 @@ class User {
     required this.address,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
       id: json['id'],
       email: json['email'],
       username: json['username'],
       password: json['password'],
       phone: json['phone'],
-      name: Name.fromJson(json['name']),
-      address: Address.fromJson(json['address']),
+      name: NameModel.fromJson(json['name']),
+      address: AddressModel.fromJson(json['address']),
     );
   }
 }
 
-class Name {
+class NameModel {
   String firstname;
   String lastname;
 
-  Name({
+  NameModel({
     required this.firstname,
     required this.lastname,
   });
 
-  factory Name.fromJson(Map<String, dynamic> json) {
-    return Name(
+  factory NameModel.fromJson(Map<String, dynamic> json) {
+    return NameModel(
       firstname: json['firstname'],
       lastname: json['lastname'],
     );
   }
 }
 
-class Address {
+class AddressModel {
   String city;
   String street;
   int number;
   String zipcode;
-  Geolocation geolocation;
-  Address({
+  GeolocationModel geolocation;
+  AddressModel({
     required this.city,
     required this.street,
     required this.number,
     required this.zipcode,
     required this.geolocation,
   });
-  factory Address.fromJson(Map<String, dynamic> json) {
-    return Address(
+  factory AddressModel.fromJson(Map<String, dynamic> json) {
+    return AddressModel(
       city: json['city'],
       street: json['street'],
       number: json['number'],
       zipcode: json['zipcode'],
-      geolocation: Geolocation.fromJson(json['geolocation']),
+      geolocation: GeolocationModel.fromJson(json['geolocation']),
     );
   }
 }
 
-class Geolocation {
+class GeolocationModel {
   String lat;
   String long;
 
-  Geolocation({
+  GeolocationModel({
     required this.lat,
     required this.long,
   });
 
-  factory Geolocation.fromJson(Map<String, dynamic> json) {
-    return Geolocation(
+  factory GeolocationModel.fromJson(Map<String, dynamic> json) {
+    return GeolocationModel(
       lat: json['lat'],
       long: json['long'],
     );

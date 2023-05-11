@@ -13,7 +13,7 @@ class Result extends StatefulWidget {
 
 class _ResultState extends State<Result> {
   final String _apiUrl = 'https://fakestoreapi.com/products';
-  List<Product> _products = [];
+  List<ProductModel> _products = [];
   bool _isLoading = true;
   bool _isError = false;
 
@@ -22,7 +22,7 @@ class _ResultState extends State<Result> {
       Response response = await Dio().get(_apiUrl);
       setState(() {
         List<dynamic> data = response.data;
-        List<Product> products = data.map((e) => Product.fromJson(e)).toList();
+        List<ProductModel> products = data.map((e) => ProductModel.fromJson(e)).toList();
         _products = products;
         _isLoading = false;
       });

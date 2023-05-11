@@ -16,7 +16,7 @@ class ResultProduct extends StatefulWidget {
 class _ResultProductState extends State<ResultProduct> {
   bool _isLoading = true;
   bool _isError = false;
-  List<Product> _products = [];
+  List<ProductModel> _products = [];
   @override
   void initState() {
     super.initState();
@@ -42,7 +42,7 @@ class _ResultProductState extends State<ResultProduct> {
       );
       setState(() {
         _products =
-            List<Product>.from(response.data.map((e) => Product.fromJson(e)));
+            List<ProductModel>.from(response.data.map((e) => ProductModel.fromJson(e)));
         _isLoading = false;
       });
     } catch (e) {

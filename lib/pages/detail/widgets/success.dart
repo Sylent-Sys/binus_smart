@@ -3,7 +3,7 @@ import 'package:binus_smart/models/product.dart';
 import 'package:flutter/material.dart';
 
 class Success extends StatelessWidget {
-  final Product _product;
+  final ProductModel _product;
   const Success(this._product, {Key? key}) : super(key: key);
 
   @override

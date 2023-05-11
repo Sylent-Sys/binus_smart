@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class MyCard extends StatelessWidget {
   const MyCard(this._products, {super.key});
-  final List<Product> _products;
+  final List<ProductModel> _products;
   @override
   Widget build(BuildContext context) {
     double calculateSpacingWith({

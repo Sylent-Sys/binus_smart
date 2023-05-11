@@ -13,14 +13,14 @@ class Result extends StatefulWidget {
 }
 
 class _ResultState extends State<Result> {
-  Product _product = Product(
+  ProductModel _product = ProductModel(
     id: 0,
     title: '',
     description: '',
     price: 0,
     category: '',
     image: '',
-    rating: Rating(
+    rating: RatingModel(
       rate: 0,
       count: 0,
     ),
@@ -39,7 +39,7 @@ class _ResultState extends State<Result> {
       Response response =
           await Dio().get('https://fakestoreapi.com/products/$id');
       setState(() {
-        _product = Product.fromJson(response.data);
+        _product = ProductModel.fromJson(response.data);
         _isLoading = false;
       });
     } catch (e) {

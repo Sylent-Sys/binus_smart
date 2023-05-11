@@ -38,7 +38,7 @@ class _LoginState extends State<Login> {
       response = await Dio().get(
         'https://fakestoreapi.com/users/${jwt.payload['sub']}',
       );
-      User user = User.fromJson(response.data);
+      UserModel user = UserModel.fromJson(response.data);
       await _storage.write(
         key: 'id',
         value: user.id.toString(),
