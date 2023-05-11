@@ -22,19 +22,24 @@ class _ResultProductState extends State<ResultProduct> {
     super.initState();
     getProducts();
   }
+
   @override
   void didUpdateWidget(covariant ResultProduct oldWidget) {
     super.didUpdateWidget(oldWidget);
     getProducts();
   }
+
   void getProducts() async {
     setState(() {
       _isLoading = true;
       _isError = false;
     });
     try {
-      Response response = await Dio().get(Uri.encodeFull(
-          'https://fakestoreapi.com/products/category/${widget.selectedCategory}'));
+      Response response = await Dio().get(
+        Uri.encodeFull(
+          'https://fakestoreapi.com/products/category/${widget.selectedCategory}',
+        ),
+      );
       setState(() {
         _products =
             List<Product>.from(response.data.map((e) => Product.fromJson(e)));
