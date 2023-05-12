@@ -57,7 +57,7 @@ class _ResultState extends State<Result> {
         children: [
           GestureDetector(
             onTap: () {
-              Routes.router.navigateTo(context, 'home', replace: true);
+              Routes.router.pop(context);
             },
             child: const FittedBox(
               child: Row(
