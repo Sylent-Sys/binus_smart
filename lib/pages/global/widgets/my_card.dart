@@ -45,7 +45,6 @@ class MyCard extends StatelessWidget {
                   Routes.router.navigateTo(
                     context,
                     '/detail/${_products[index].id}',
-                    replace: true,
                   );
                 },
                 child: Card(

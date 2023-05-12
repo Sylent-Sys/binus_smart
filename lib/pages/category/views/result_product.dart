@@ -1,7 +1,7 @@
 import 'package:binus_smart/config/extension.dart';
 import 'package:binus_smart/models/product.dart';
 import 'package:binus_smart/pages/global/views/state_condition.dart';
-import 'package:binus_smart/pages/home/widgets/my_card.dart';
+import 'package:binus_smart/pages/global/widgets/my_card.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
