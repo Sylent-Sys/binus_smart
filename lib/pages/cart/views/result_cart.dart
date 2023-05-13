@@ -19,12 +19,12 @@ class ResultCart extends StatelessWidget {
             height: 125,
             child: Padding(
               padding: const EdgeInsets.symmetric(
-                horizontal: 48.5,
+                horizontal: 32.5,
                 vertical: 9,
               ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  const Spacer(),
                   const Text(
                     'Grand Total',
                     style: TextStyle(
