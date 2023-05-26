@@ -20,6 +20,7 @@ class _ResultState extends State<Result> {
 
   void getApiData(BuildContext context) async {
     try {
+      if(_isLoading == false) return;
       Response response = await Dio().get(_apiUrl);
       setState(() {
         List<dynamic> data = response.data;
